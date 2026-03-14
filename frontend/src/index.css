@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: #0b0b0b;
+  background: radial-gradient(circle at top left, #f9f4ea, #f0e8d8 40%, #eddcc9 100%);
+  min-height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.bg-inkwash {
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(194, 106, 90, 0.15), transparent 55%),
+    radial-gradient(circle at 80% 10%, rgba(43, 92, 122, 0.2), transparent 50%),
+    linear-gradient(120deg, rgba(185, 133, 59, 0.15), rgba(244, 240, 230, 0));
+}
+
+.surface-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.message-enter {
+  animation: rise 0.35s ease-out;
+}
