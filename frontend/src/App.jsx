@@ -95,11 +95,13 @@ function ChatApp() {
     setError("");
 
     try {
+      let receivedToken = false;
       const reply = await askQuestion({
         question: text.trim(),
         history,
         stream: streamEnabled,
         onToken: (chunk) => {
+          receivedToken = true;
           updateConversation(activeConversation.id, (conv) => ({
             ...conv,
             messages: conv.messages.map((msg) =>
@@ -111,7 +113,9 @@ function ChatApp() {
         },
       });
 
-      if (!streamEnabled) {
+      // If streaming is off, or backend returned a plain JSON answer while stream is on,
+      // write the full reply to ensure the assistant message is visible.
+      if (!streamEnabled || !receivedToken) {
         updateConversation(activeConversation.id, (conv) => ({
           ...conv,
           messages: conv.messages.map((msg) =>

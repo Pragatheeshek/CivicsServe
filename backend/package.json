@@ -1,0 +1,14 @@
+{
+	"name": "civicsserve-backend",
+	"version": "1.0.0",
+	"description": "CivicsServe AI Assistant backend with Express, RAG retrieval, and Ollama integration",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"body-parser": "^1.20.3",
+		"cors": "^2.8.5",
+		"express": "^4.21.2"
+	}
+}

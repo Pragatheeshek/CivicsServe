@@ -1,0 +1,22 @@
+[
+	{
+		"service": "Income Certificate",
+		"text": "In Tamil Nadu, income certificates can be applied through the TNeGA e-Sevai portal. Applicants usually need Aadhaar, ration card, and proof of income details. Track status using the application number on the same portal.",
+		"source": "https://www.tnesevai.tn.gov.in/"
+	},
+	{
+		"service": "Caste Certificate",
+		"text": "Caste and community certificates are available through the Tamil Nadu e-Sevai system. Applicants should provide identity proof, address proof, and relevant supporting records based on category requirements.",
+		"source": "https://www.tnesevai.tn.gov.in/"
+	},
+	{
+		"service": "Birth Certificate",
+		"text": "Birth certificate services in urban local bodies are available through Tamil Nadu urban e-governance platforms. Citizens can search records and download certificates where digitized records are available.",
+		"source": "https://tnurbanepay.tn.gov.in/"
+	},
+	{
+		"service": "Patta Chitta",
+		"text": "Land record related services such as Patta and Chitta can be accessed through Tamil Nadu government e-services. Users need district, taluk, village, and survey details to search records.",
+		"source": "https://eservices.tn.gov.in/eservicesnew/index.html"
+	}
+]

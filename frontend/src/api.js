@@ -1,4 +1,4 @@
-const DEFAULT_API_BASE = "http://localhost:3001";
+const DEFAULT_API_BASE = "http://localhost:5000";
 
 export async function askQuestion({
 	question,
@@ -16,7 +16,7 @@ export async function askQuestion({
 		headers: {
 			"Content-Type": "application/json",
 		},
-		body: JSON.stringify({ question, history, stream }),
+		body: JSON.stringify({ query: question, history, stream }),
 		signal,
 	});
 
@@ -25,7 +25,9 @@ export async function askQuestion({
 		throw new Error(errorText || `Request failed (${response.status})`);
 	}
 
-	if (stream && response.body) {
+	const contentType = response.headers.get("content-type") || "";
+
+	if (stream && response.body && !contentType.includes("application/json")) {
 		const reader = response.body.getReader();
 		const decoder = new TextDecoder();
 		let fullText = "";
@@ -49,7 +51,6 @@ export async function askQuestion({
 		return fullText.trim();
 	}
 
-	const contentType = response.headers.get("content-type") || "";
 	if (contentType.includes("application/json")) {
 		const data = await response.json();
 		return data.answer ?? data.message ?? "";
