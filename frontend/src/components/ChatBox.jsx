@@ -42,7 +42,7 @@ export default function ChatBox({
       >
         {messages.length === 0 ? (
           <div className="flex h-full items-center justify-center text-center text-sm text-ink/60">
-            Start with a question about certificates, schemes, or municipal services.
+            Ask your question about Tamil Nadu civic services.
           </div>
         ) : (
           messages.map((message) => (
@@ -69,7 +69,7 @@ export default function ChatBox({
             onChange={(event) => setInput(event.target.value)}
             onKeyDown={handleKeyDown}
             rows={3}
-            placeholder="Eg. How to apply for income certificate in Tamil Nadu?"
+            placeholder="Type your question"
             className="mt-2 w-full resize-none rounded-2xl border border-ink/20 bg-white/80 px-4 py-3 text-sm focus:border-ink focus:outline-none"
           />
         </div>

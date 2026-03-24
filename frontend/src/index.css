@@ -15,17 +15,17 @@
 body {
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
-  color: #0b0b0b;
-  background: radial-gradient(circle at top left, #f9f4ea, #f0e8d8 40%, #eddcc9 100%);
+  color: #0f2d46;
+  background: radial-gradient(circle at top left, #eef8ff, #e8f5fb 45%, #eaf9f3 100%);
   min-height: 100vh;
   padding-bottom: env(safe-area-inset-bottom);
 }
 
 .bg-inkwash {
   background-image:
-    radial-gradient(circle at 15% 20%, rgba(194, 106, 90, 0.15), transparent 55%),
-    radial-gradient(circle at 80% 10%, rgba(43, 92, 122, 0.2), transparent 50%),
-    linear-gradient(120deg, rgba(185, 133, 59, 0.15), rgba(244, 240, 230, 0));
+    radial-gradient(circle at 16% 18%, rgba(31, 106, 165, 0.16), transparent 56%),
+    radial-gradient(circle at 82% 12%, rgba(21, 143, 119, 0.16), transparent 52%),
+    linear-gradient(120deg, rgba(15, 45, 70, 0.07), rgba(243, 251, 255, 0));
 }
 
 .surface-card {

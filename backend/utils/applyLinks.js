@@ -4,7 +4,15 @@ const applyLinks = {
 	"birth certificate": "https://tnurbanepay.tn.gov.in/",
 	"community certificate": "https://www.tnesevai.tn.gov.in/",
 	"nativity certificate": "https://www.tnesevai.tn.gov.in/",
-	"patta chitta": "https://eservices.tn.gov.in/eservicesnew/index.html"
+	"first graduate certificate": "https://www.tnesevai.tn.gov.in/",
+	"agricultural income certificate": "https://www.tnesevai.tn.gov.in/",
+	"family migration certificate": "https://www.tnesevai.tn.gov.in/",
+	"widow certificate": "https://www.tnesevai.tn.gov.in/",
+	"obc certificate": "https://www.tnesevai.tn.gov.in/",
+	"residence certificate": "https://www.tnesevai.tn.gov.in/",
+	"unmarried certificate": "https://www.tnesevai.tn.gov.in/",
+	"ignops pension scheme": "https://www.tnesevai.tn.gov.in/",
+	"unmarried women pension scheme": "https://www.tnesevai.tn.gov.in/"
 };
 
 function findApplyLink(query, services = []) {
