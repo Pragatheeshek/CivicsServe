@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 const askRoute = require("./routes/ask");
 const authRoute = require("./routes/auth");
+const chatRoute = require("./routes/chat");
 
 const app = express();
 const PORT = 5000;
@@ -28,6 +29,7 @@ app.get("/", (req, res) => {
 
 app.use("/auth", authRoute);
 app.use("/ask", askRoute);
+app.use("/chat", chatRoute);
 
 app.listen(PORT, () => {
 	console.log(`CivicsServe backend running on http://localhost:${PORT}`);

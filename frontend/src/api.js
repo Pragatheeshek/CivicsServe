@@ -6,11 +6,18 @@ function getApiBase(baseUrl) {
 
 async function readError(response) {
 	try {
-		const data = await response.json();
-		return data.error || data.details || response.statusText;
-	} catch {
 		const text = await response.text();
-		return text || response.statusText;
+		if (!text) {
+			return response.statusText;
+		}
+		try {
+			const data = JSON.parse(text);
+			return data.error || data.details || text;
+		} catch {
+			return text;
+		}
+	} catch {
+		return response.statusText;
 	}
 }
 
@@ -21,6 +28,23 @@ export function saveAuthSession(payload) {
 
 	localStorage.setItem("civicsserve_token", payload.token);
 	localStorage.setItem("civicsserve_user", JSON.stringify(payload.user));
+}
+
+export function clearAuthSession() {
+	localStorage.removeItem("civicsserve_token");
+	localStorage.removeItem("civicsserve_user");
+}
+
+export function getCurrentUser() {
+	try {
+		const raw = localStorage.getItem("civicsserve_user");
+		if (!raw) {
+			return null;
+		}
+		return JSON.parse(raw);
+	} catch {
+		return null;
+	}
 }
 
 export async function signup({ name, email, password, baseUrl }) {
@@ -35,9 +59,7 @@ export async function signup({ name, email, password, baseUrl }) {
 		throw new Error(await readError(response));
 	}
 
-	const data = await response.json();
-	saveAuthSession(data);
-	return data;
+	return response.json();
 }
 
 export async function login({ email, password, baseUrl }) {
@@ -55,6 +77,32 @@ export async function login({ email, password, baseUrl }) {
 	const data = await response.json();
 	saveAuthSession(data);
 	return data;
+}
+
+export async function getUserChatHistory({ userId, baseUrl }) {
+	const apiBase = getApiBase(baseUrl);
+	const response = await fetch(`${apiBase}/chat/${userId}`);
+
+	if (!response.ok) {
+		throw new Error(await readError(response));
+	}
+
+	return response.json();
+}
+
+export async function saveUserChatHistory({ userId, messages, baseUrl }) {
+	const apiBase = getApiBase(baseUrl);
+	const response = await fetch(`${apiBase}/chat/save`, {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({ userId, messages }),
+	});
+
+	if (!response.ok) {
+		throw new Error(await readError(response));
+	}
+
+	return response.json();
 }
 
 export async function askQuestion({
@@ -112,5 +160,7 @@ export async function askQuestion({
 		return data.answer ?? data.message ?? "";
 	}
 
-	return response.text();
+	// For non-JSON responses, read body only once
+	const text = await response.text();
+	return text;
 }

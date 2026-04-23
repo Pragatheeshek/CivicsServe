@@ -1,7 +1,13 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import ChatBox from "./components/ChatBox.jsx";
-import { askQuestion } from "./api";
+import {
+  askQuestion,
+  clearAuthSession,
+  getCurrentUser,
+  getUserChatHistory,
+  saveUserChatHistory,
+} from "./api";
 import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
@@ -17,6 +23,7 @@ const createConversation = (label = "New chat") => ({
 
 function ChatApp() {
   const navigate = useNavigate();
+  const [currentUser] = useState(() => getCurrentUser());
   const [conversations, setConversations] = useState([
     createConversation("Welcome"),
   ]);
@@ -25,6 +32,37 @@ function ChatApp() {
   const [error, setError] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    if (!currentUser?.id) {
+      return;
+    }
+
+    const loadUserChat = async () => {
+      try {
+        const result = await getUserChatHistory({ userId: currentUser.id });
+        const savedMessages = Array.isArray(result?.messages)
+          ? result.messages.map((msg) => ({
+              id: makeId(),
+              role: msg.role,
+              content: msg.content,
+              timestamp: msg.timestamp || new Date().toISOString(),
+            }))
+          : [];
+
+        if (savedMessages.length > 0) {
+          const restored = createConversation("Saved chat");
+          restored.messages = savedMessages;
+          setConversations([restored]);
+          setActiveId(restored.id);
+        }
+      } catch {
+        // Keep default chat state if history load fails.
+      }
+    };
+
+    loadUserChat();
+  }, [currentUser]);
 
   const activeConversation = useMemo(
     () => conversations.find((conv) => conv.id === activeId),
@@ -58,7 +96,7 @@ function ChatApp() {
   };
 
   const handleSend = async (text) => {
-    if (!text.trim() || !activeConversation) {
+    if (!text.trim() || !activeConversation || !currentUser?.id) {
       return;
     }
 
@@ -111,9 +149,16 @@ function ChatApp() {
         },
       });
 
+      let finalMessages = activeConversation.messages;
+
       // If streaming is off, or backend returned a plain JSON answer while stream is on,
       // write the full reply to ensure the assistant message is visible.
       if (!receivedToken) {
+        finalMessages = [...activeConversation.messages, userMessage, {
+          ...assistantMessage,
+          content: reply,
+        }];
+
         updateConversation(activeConversation.id, (conv) => ({
           ...conv,
           messages: conv.messages.map((msg) =>
@@ -123,8 +168,29 @@ function ChatApp() {
           ),
         }));
       }
+
+      if (receivedToken) {
+        finalMessages = [...activeConversation.messages, userMessage, {
+          ...assistantMessage,
+          content: reply,
+        }];
+      }
+
+      await saveUserChatHistory({
+        userId: currentUser.id,
+        messages: finalMessages.map((msg) => ({
+          role: msg.role,
+          content: msg.content,
+          timestamp: msg.timestamp,
+        })),
+      });
     } catch (err) {
       setError(err?.message || "Something went wrong.");
+      const failedMessages = [...activeConversation.messages, userMessage, {
+        ...assistantMessage,
+        content: "Sorry, I could not fetch a response.",
+      }];
+
       updateConversation(activeConversation.id, (conv) => ({
         ...conv,
         messages: conv.messages.map((msg) =>
@@ -136,18 +202,43 @@ function ChatApp() {
             : msg
         ),
       }));
+
+      try {
+        await saveUserChatHistory({
+          userId: currentUser.id,
+          messages: failedMessages.map((msg) => ({
+            role: msg.role,
+            content: msg.content,
+            timestamp: msg.timestamp,
+          })),
+        });
+      } catch {
+        // Ignore chat save failures here.
+      }
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleLogout = () => {
-    navigate("/");
+    clearAuthSession();
+    navigate("/login");
   };
 
   const handleAccount = () => {
-    navigate("/login");
+    navigate("/app");
   };
+
+  if (!currentUser?.id) {
+    return <Navigate to="/login" replace />;
+  }
+
+  const initials = (currentUser.name || "CS")
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
 
   return (
     <div className="min-h-screen bg-inkwash px-4 py-6 sm:px-6 md:px-10">
@@ -230,24 +321,31 @@ function ChatApp() {
               )}
             </div>
             <div className="mt-auto pt-4">
-              <div className="flex items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-white/60 p-3">
+              <div className="rounded-2xl border border-ink/10 bg-white/60 p-3">
                 <button
                   type="button"
                   onClick={handleAccount}
-                  className="flex items-center gap-3 text-left"
+                  className="flex w-full items-center gap-3 text-left"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-sm font-semibold text-mist">
-                    CS
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink text-sm font-semibold text-mist">
+                    {initials}
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-ink">My Account</p>
-                    <p className="text-xs text-ink/60">Manage profile</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-semibold text-ink">
+                      {currentUser.name || "My Account"}
+                    </p>
+                    <p
+                      className="truncate text-xs text-ink/60"
+                      title={currentUser.email || "Manage profile"}
+                    >
+                      {currentUser.email || "Manage profile"}
+                    </p>
                   </div>
                 </button>
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="rounded-full border border-ink/20 px-3 py-2 text-xs font-semibold text-ink"
+                  className="mt-3 w-full rounded-xl bg-ink px-3 py-2 text-sm font-semibold text-mist"
                 >
                   Logout
                 </button>
