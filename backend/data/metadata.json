@@ -2,259 +2,383 @@
   {
     "category": "certificates",
     "service": "Community Certificate",
-    "text": "1. Photo\n2. Any Address Proof\n3. Community Certificate of Father or Mother or Siblings\n4. Self-Declaration of Applicant\n5. DNC Certificate",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Community Certificate of Father/Mother/Siblings\n4. Self-Declaration\n5. DNC Certificate",
+    "procedure": "- Visit TN e-Sevai portal\n- Select Community Certificate\n- Fill application form\n- Upload documents\n- Submit and track status",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-101_CommunityCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "Nativity Certificate",
-    "text": "1. Photo\n2. Any Address Proof\n3. Birth Certificate\n4. School Education Certificate or Employment Details or other proof for 5 years residence\n5. Self-Declaration of Applicant",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Birth Certificate\n4. Residence Proof for 5 years\n5. Self-Declaration",
+    "procedure": "- Login to e-Sevai portal\n- Choose Nativity Certificate\n- Enter personal details\n- Upload documents\n- Submit application",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-102_NativityCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "Income Certificate",
-    "text": "1. Applicant Photo\n2. Any Address Proof\n3. TIN Number and Trade Details\n4. Land Holding Details\n5. House Details Ward Wise\n6. Family or Smart Card\n7. Self-Declaration\n8. Latest Salary Certificate\n9. PAN Card",
+    "required_documents": "1. Photo\n2. Address Proof\n3. TIN Details\n4. Land Details\n5. House Details\n6. Family Card\n7. Self-Declaration\n8. Salary Certificate\n9. PAN Card",
+    "procedure": "- Access e-Sevai portal\n- Select Income Certificate\n- Fill income details\n- Upload documents\n- Submit and download certificate",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-103_IncomeCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "First Graduate Certificate",
-    "text": "1. Photo\n2. Any Address Proof\n3. Applicant Transfer Certificate\n4. Self-Declaration of Father\n5. Self-Declaration of Mother\n6. Father Transfer Certificate\n7. Mother Transfer Certificate\n8. Family or Smart Card\n9. Self-Declaration of Applicant\n10. Current Academic Year Certificates",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Applicant Transfer Certificate\n4. Father Transfer Certificate\n5. Mother Transfer Certificate\n6. Family Card\n7. Self-Declarations\n8. Academic Certificates",
+    "procedure": "- Go to e-Sevai portal\n- Select First Graduate Certificate\n- Provide family education details\n- Upload documents\n- Submit application",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-104_FirstGraduateCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "Agricultural Income Certificate",
-    "text": "1. Photo\n2. Any Address Proof\n3. Last One Year Adangal\n4. Self-Declaration\n5. Chitta\n6. Lease Proof (NOC from Landholder)\n7. Other Documents",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Adangal\n4. Chitta\n5. Lease Proof\n6. Self-Declaration\n7. Other Documents",
+    "procedure": "- Open e-Sevai portal\n- Select Agricultural Income Certificate\n- Enter land details\n- Upload documents\n- Submit request",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-106_AgriculturalIncomeCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "Family Migration Certificate",
-    "text": "1. Photo\n2. Any Address Proof\n3. Self-Declaration\n4. Marriage Invitation or Certificate\n5. Previous Address Proof\n6. Other Documents",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Marriage Proof\n4. Previous Address Proof\n5. Self-Declaration",
+    "procedure": "- Visit e-Sevai portal\n- Choose Migration Certificate\n- Fill relocation details\n- Upload documents\n- Submit application",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-107_FamilyMigrationCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "Widow Certificate",
-    "text": "1. Photo\n2. Any Address Proof\n3. Husband Death Certificate\n4. Marriage Proof\n5. Self-Declaration\n6. Other Documents",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Husband Death Certificate\n4. Marriage Proof\n5. Self-Declaration",
+    "procedure": "- Login to e-Sevai portal\n- Select Widow Certificate\n- Enter applicant details\n- Upload documents\n- Submit for approval",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-109_WidowCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "OBC Certificate",
-    "text": "1. Photo\n2. Address Proof\n3. Income Proof (Payslip/Certificate)\n4. Community Certificate\n5. Income Tax Return\n6. Self-Declaration\n7. Other Supporting Documents",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Income Proof\n4. Community Certificate\n5. Income Tax Return\n6. Self-Declaration",
+    "procedure": "- Access e-Sevai portal\n- Select OBC Certificate\n- Provide caste and income details\n- Upload documents\n- Submit application",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-115_OtherBackwardClasses(OBC)Certificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "Residence Certificate",
-    "text": "1. Photo\n2. Address Proof\n3. Self-Declaration\n4. Passport\n5. Driving Licence\n6. PAN Card\n7. Bank/Post Office Passbook\n8. Smart Card (NPR)\n9. Health Insurance Card\n10. Pension Document\n11. Govt Employee ID Card\n12. MP/MLA ID Card\n13. Voter Slip",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Passport\n4. Driving License\n5. PAN Card\n6. Bank Passbook\n7. Smart Card\n8. Voter Slip\n9. Other Identity Proofs",
+    "procedure": "- Go to e-Sevai portal\n- Select Residence Certificate\n- Enter address details\n- Upload documents\n- Submit application",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-116_ResidenceCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "certificates",
     "service": "Unmarried Certificate",
-    "text": "1. Photo\n2. Address Proof\n3. Age Proof\n4. Self-Declaration\n5. Other Documents",
+    "required_documents": "1. Photo\n2. Address Proof\n3. Age Proof\n4. Self-Declaration\n5. Supporting Documents",
+    "procedure": "- Visit e-Sevai portal\n- Select Unmarried Certificate\n- Fill personal details\n- Upload documents\n- Submit request",
+    "pdf_link": "https://tnesevai.tn.gov.in/Pages/PPT/CSCOperator_REV-120_UnmarriedCertificate.pdf",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
-    "category": "certificates",
+    "category": "schemes",
     "service": "IGNOPS Pension Scheme",
-    "text": "1. Photo\n2. Aadhaar Card\n3. Aadhaar Consent Form\n4. Address Proof / Smart Card\n5. Self-Declaration\n6. Identity Proof\n7. Bank Passbook",
+    "required_documents": "1. Photo\n2. Aadhaar Card\n3. Aadhaar Consent Form\n4. Address Proof\n5. Identity Proof\n6. Bank Passbook\n7. Self-Declaration",
+    "procedure": "- Login to e-Sevai portal\n- Select Old Age Pension Scheme\n- Fill eligibility details\n- Upload documents\n- Submit application",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
-    "category": "certificates",
+    "category": "schemes",
     "service": "Unmarried Women Pension Scheme",
-    "text": "1. Photo\n2. Aadhaar Card\n3. Aadhaar Consent Form\n4. Address Proof / Smart Card\n5. Self-Declaration\n6. Bank Passbook\n7. Identity Proof",
+    "required_documents": "1. Photo\n2. Aadhaar Card\n3. Aadhaar Consent Form\n4. Address Proof\n5. Identity Proof\n6. Bank Passbook\n7. Self-Declaration",
+    "procedure": "- Access e-Sevai portal\n- Select Unmarried Women Pension Scheme\n- Enter applicant details\n- Upload documents\n- Submit application",
     "source": "https://www.tnesevai.tn.gov.in/"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 1: CITIZENS’ CHARTER 2012 BACKWARD CLASSES, MOST BACKWARD CLASSES AND MINORITIES WELFARE DEPARTMENT (C) GOVERNMENT OF TAMILNADU 2012",
+    "service": "Pre Matric Scholarship Scheme",
+    "required_documents": "1. Mark Sheet\n2. Community Certificate\n3. Income Certificate\n4. Address Proof\n5. Aadhaar Card",
+    "procedure": "- Download application form or apply through school\n- Fill student details\n- Attach required documents\n- Submit to school authorities\n- Verification and approval",
+    "apply_link": "https://scholarships.gov.in/",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 2: INDEX Sl. No SUBJECT PAGE NO 1 Introduction 1 2 Reservation Policy Issuance of Community Certificate 2-3 3 Educational Schemes Kallar Reclamation Schools Opening of \"LKG\" classes in Kallar Primary Schools Hostels (Boys/Girls) Scholarship scheme Award of Prizes Boarding Grants Rural Girl’s incentive Scheme Supply of Free Bi-cycles Coaching to Indian Administrative Services / Indian Police Services Examination 3-18 4 Economic Development Free Supply of Iron Boxes Free Sewing Machines Distribution Of Free House Site Pattas 18-20 5 Welfare Boards Denotified Communities Welfare Board Narikuravar Welfare Board Vanniyar Public Properties Welfare Board 20-24 6 General Procedure for Redressals of grievances and appeals. Right to Information Act 2005 24-26 7 List of Backward Classes, Backward Classes Muslims, Most Backward Classes And Denotified Communities 27-37 8. Tamil Nadu Wakf Board Introduction Establishment Functions of the Board Wakf-Assessable & Non – Assessable Wakfs Registered and Unregistered Wakfs Contribution to Central Wakf Council (1% contribution) Central Wakf Council Development Loan Constitution of Wakf Tribunal Sanction of administrative grant by the Government Implementation of the Muslim Women (Protection of Rights on Divorce)Act, 1986 Schemes executed by the Board with the assistance of the Government Loan for development of Urban Wakf Properties 38-43",
+    "service": "Post Matric Scholarship Scheme",
+    "required_documents": "1. Mark Sheet\n2. Community Certificate\n3. Income Certificate\n4. Address Proof\n5. Fee Receipt\n6. Aadhaar Card",
+    "procedure": "- Apply through online portal or institution\n- Fill academic details\n- Upload documents\n- Submit application\n- Verification by authorities",
+    "apply_link": "https://scholarships.gov.in/",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 3: Sl. No SUBJECT PAGE NO 9 Tamil Nadu Backward Classes Economic Development Corporation limited Procedure for availing loan assistance by the Backward Classes, Most Backward Classes and Denotified Communities Financial Sanction Activities Qualifications Mode of Application Documents to be produced Method of Loan sanction Loan Amounts/Securities Method of financial assistance Repayment of loan amounts Loan sanction card maintenance 44-50 10. Tamil Nadu State Hajj Committee Procedure for application Services rendered by Tamil Nadu State Hajj Committee. 51-56 11. Tamil Nadu State Minorities Commission 57 12. Tamil Nadu Backward Classes Commission. Introduction Creation of the Tamil Nadu Backward Classes Commission Functions of the Commission Constitution of the existing Commission Sending of representation of complaint to the Commission Public information Officer and Appellate Authority designated under the Right to Information Act, 2005. 58-59 13. Minorities Welfare Reservation Scholarship Schemes Merit cum Means based scholarship scheme Post-matric Scholarship Scheme Pre-matric Scholarship Scheme Award of Prizes Free Bi-cycles School/College hostel for Muslim girl students Muslim Women Aid Society Rehabilitation Assistance Ulema and Other Personnel Welfare Board List of Public Information Officer and Appellate Authority under RTI Act, 2005 60-73",
+    "service": "Merit Cum Means Based Scholarship",
+    "required_documents": "1. Mark Sheets\n2. Community Certificate\n3. Income Certificate\n4. Address Proof\n5. Fee Receipt\n6. Aadhaar Card\n7. Bank Account Details",
+    "procedure": "- Apply online via scholarship portal\n- Fill personal and academic details\n- Upload documents\n- Submit through institution\n- Approval process",
+    "apply_link": "https://scholarships.gov.in/",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 4: Sl. No SUBJECT PAGE NO 14. Tamil Nadu Minorities Economic Development Corporation Limited Individual Term Loan Scheme Milch animal loan scheme Micro-Finance Loan for the purchase of Auto by forming Individual Co-op. Societies through TAICO Bank Education loan Transport Sector Loan 74-78",
+    "service": "Free Education Scheme (UG Degree)",
+    "required_documents": "1. Admission Proof\n2. Community Certificate\n3. Income Certificate\n4. Address Proof\n5. Academic Records",
+    "procedure": "- Apply through college\n- Submit required documents\n- Verify eligibility\n- Government covers fees\n- Continue course",
+    "apply_link": "Through College",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 6: 2 Reservation Reservation plays a vital role in developing the socio, economic and educational status of Backward C lasses, Most Backward Classes, Denotified Communities and Minorities. The reservation policy of the Government enables the socially and educationally Backward Classes to secure admission in Educational Institutions and to get employment in the services und er the State Government. The reservation provided at present is as follows: - 1 Scheduled Castes  18% ** 2 Scheduled Tribes  1 % 3 Backward Classes (excluding the Backward Class Muslims)  26.5 % 4 Backward Class Muslims  3.5 % 5 Most Backward Classes / Denotified Communities  20 % TOTAL 69% ** (16% of the seats reserved for the SCs are offe red to Arunthathiyars on preferential basis) Accepting the recommendation rendered by Tamilnadu Backward Classes Commission by examining the issue relating to quantum of reservation and exclusion of creamy layer on the basis of the quantifiable data as p er the directions of Supreme Court dated:13.7.2010 in the cases relating to 69% reservation, the Government have issued orders on 11.7.2011 to continue to implement the 50% reservation provided for Backward Classes and Most Backward Classes / Denotified Communities without excluding the creamy layer. The list of Backward Classes, Backward Class Muslims, Most Backward Classes and Denotified Communities are furnished in th",
+    "service": "Free Education Scheme (Polytechnic)",
+    "required_documents": "1. Admission Proof\n2. Community Certificate\n3. Income Certificate\n4. Address Proof\n5. Academic Records",
+    "procedure": "- Apply via institution\n- Submit documents\n- Verify eligibility\n- Fee assistance provided\n- Continue studies",
+    "apply_link": "Through Institution",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 7: 3 ISSUANCE OF COMMUNITY CERTIFICATE The Government have issued orders to issue community certificate to the persons belonging to the communities declared as Backward Classes , Most Backward Classes and Denotified Communities in certain restricted areas, (District and Taluk) as and when they migrate to other areas . Certificate are issued by the Authorities of the migrated area, if they produce community certificates issued to their parents so as to prove that they belong to that community and have migrated from the areas (Districts and Taluk) where such community has been declare d as Backward Classes, Most Backward Classes and Denotified Communities. Education: Education forms the basis for the economic advancement of a society. The State Government, with the objective of providing educational advancement to Backward Classes, Most Backward Classes, Denotified Communities and Minorities, has formulated and implemented many schemes. The reservation policy followed by the State has provided the opportunity to get admission in higher educational institutions. The scholarship sche mes provide financial support to the poor students of those communities to pursue their education. Hostels run by this department nearer to the educational institutions provide free accommodation and food. The students are motivated to study with interest through the award schemes. Kallar Reclamation Scho",
+    "service": "Free Education Scheme (Professional Courses)",
+    "required_documents": "1. Admission Proof\n2. Community Certificate\n3. Income Certificate\n4. Address Proof\n5. Academic Certificates",
+    "procedure": "- Apply through college\n- Submit required documents\n- Eligibility verification\n- Fee support provided\n- Continue education",
+    "apply_link": "Through College",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 8: 4 No. of Students ( 2011-2012) Sl.No. Details of Schools No. of Schools Boys Girls Total 1 Primary School L.K.G. Classes 211 -- 6980 121 6616 124 13596 245 2 Middle School 25 1705 1684 3389 3 High School 25 2868 2527 5395 4 Hr.Sec.School 24 8759 6172 14931 Total 285 20433 17123 37556 OPENING OF “ LKG” CLASSES IN KALLAR PRIMARY SCHOOLS In tune with the change of Educational system, LKG classes in English Medium has been started in 15 Primary Schools during the year 2011 -12 on an experimental basis. In Madurai, Theni and Dindigul districts have 5 schools each and totally 121 boys and 124 girls have joined and are studying in LKG classes. PRIZE SCHEME FOR THE STUDENTS OF KALLAR RECLAMATION SCHOOLS In order to improve the standard of Education in the Kallar Reclamation Schools and to encourage the students who secure high marks in the Public Examinations separate prizes are awarded to the 10 th and 12 th Standard students. The scheme is common for the Kallar Reclamation Schools situated in Madurai, Theni and Dindigul districts. The details of prizes are as follows:- Details of Prizes Amount (Rs.) One First Prize (Boy or Girl) 10,000/- One Second Prize (Boy or Girl) 7,000/- Three Third Prizes (Boys/Girls) 5,000/- each",
+    "service": "State Level Prize Scheme",
+    "required_documents": "1. Mark Sheet\n2. Community Certificate",
+    "procedure": "- Students automatically considered based on marks\n- Merit list prepared\n- Prize awarded by government",
+    "apply_link": "No Application Required",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 11: 7 BC/ MBC / DNC & Minori ties College 160 7705 5365 12820 6780 4086 10677 School 1106 41919 22225 63794 40070 22710 62737 Grand Total 1266 49624 27590 76614 46850 26796 73414 Relaxation to submission of certificate at the time of applying for admission in the hostels Instead of submitting the certificate of parental income and community at the time of applying f or admission in Backward Classes, Most Backward Classes , Denotified Communities and Minorities Welfare hostels arrangements have been made to submit the certificates after admission into the hostels. This has wiped -out the difficulties experienced by the students while applying for admission in the hostels. Facilities provided in the Hostels Food charges: School Hostel  Rs.650 per student p.m. (wef.20-09-2011) College Hostel  Rs.750 per student p.m. (wef.20-09-2011) News Papers  One English and two Tamil dailies are supplied to the Schools/ College Hostels. Medical Checkup  Three times in a year Accommodation for children of Tamil Refugees who reside in camps 5 additional seats have been exclusively created in al l the hostels to accommodate children of Tamil refugees who reside in camps. Accommodation for Physically Challenged 3% of seats are allotted in each hostel to accommodate the physically challenged students.",
+    "service": "Perarignar Anna Memorial Award",
+    "required_documents": "1. Mark Sheet\n2. Community Certificate\n3. Admission Proof",
+    "procedure": "- Based on district rank in 12th exam\n- Verify eligibility\n- Award granted annually",
+    "apply_link": "Through School / College",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 12: 8 Accommodation for Child Labour Rescued bonded labour children are admitted in the hostels any time without any conditions till they complete their course Other facilities : Facilities Eligibility Contact officials Uniforms Two sets of uniforms are supplied to the boarders studying from 4th std to 10th std staying in hostels. Two sets of Churidhars for 9th & 10th girl students. Hostel Warden/Matron concerned Special Guides All the Students studying in 10 th and 12th standard Woolen Sweater All the students staying in the hostels located in Hill stations in The Nilgiris, Salem and Dindigul Districts. Bed Sheets and Mat For all the students of School & College hostels SCHOLARSHIP SCHEME FOR THE STUDENTS OF BACKWARD CLASSES,MOST BACKWARD CLASSES & DENOTIFIED COMMUNITIES PRE-MATRIC SCHOLARSHIP SCHEME The Government have abolished the payment of Special Fees for the students studying from 6 th to 12th Standard in Tamil Medium in Government and Government Aided Schools. Further, Government have waived the payment of Examination Fee for the 10 th Standard students of Tamil Medium. Pre -Matric Scholarships are paid to Backward Classes, Most Backward Classes and Denotified Communities students studying in English Medium in Government and Government aided schools.",
+    "service": "Thanthai Periyar Memorial Award",
+    "required_documents": "1. Mark Sheet\n2. Community Certificate\n3. Admission Proof",
+    "procedure": "- Based on 10th marks\n- Selection by district\n- Scholarship awarded",
+    "apply_link": "Through School",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 13: 9 Sl.No. Name of the Scheme Standard and Course Details of concessions and conditions 1. Pre- Matric Scholarships Students studying from 6th to 10th std in English Medium Tuition Fee From 6th to 8th Standard Rs.200/- at the rate of Rs.20/- per month for 10 months For 9th and 10th Standard Rs.250/- at the rate of Rs.25/- per month for 10 months Examination Fee Sanctioned in full for 10th Standard Students Conditions for Backward Classes Students 1) The income of the parents should not exceed Rs.1,00,000/- 2) There should be no graduate in the family. Most Backward Classes and Denotified Communities Students No conditions",
+    "service": "Higher Secondary Education Assistance Scheme",
+    "required_documents": "1. Mark Sheet\n2. Income Certificate\n3. Community Certificate\n4. Admission Proof",
+    "procedure": "- Select top students per district\n- Apply through school\n- Financial support provided\n- Continue education",
+    "apply_link": "Through School",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 14: 10 POST MATRIC SCHOLARSHIP SCHEME 2.Postmatric Scholarship are sanctioned from 11th Standard to Research level as per the rates prescribed in the Scholarship Notitification as detailed below: Post Matric Scholarships Students studying in 11th and 12th std in English Medium Postgraduate, Diploma, Professional and Research Courses in Govt./Govt. aided colleges. for BCs.MBCs.& DNCs. Tuition Fee Rs.500/- at the rate of Rs.50/- per month for 10 months Examination Fee Sanctioned in full for 12th Standard Students Conditions for Backward Classes Students 1. The income of the parents should not exceed Rs.1,00,000/- 2. There should be no graduate in the family. Most Backward Classes and Denotified Communities Students No conditions Special fees, Tuition fees and Book-Money as prescribed in the Scholarship Notification and examination fees in full. Conditions The income of the parents should not exceed Rs.1,00,000/-",
+    "service": "Boarding Grant Scheme",
+    "required_documents": "1. Hostel Proof\n2. Income Certificate\n3. Student ID",
+    "procedure": "- Students staying in hostels eligible\n- No separate application needed\n- Grant provided monthly",
+    "apply_link": "Through Hostel Administration",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 15: 11 FREE EDUCATION SCHEME 3. Free education scholarship for three year U.G. degree Courses (B.A., B.Sc., & B.Com.,) Free Education (Degree) Backward, Most Backward Classes and Denotified Communities students studying in 3 year degree courses in Government and Government Aided Arts and Science Colleges. Special fee and other non - refundable compulsory fees are paid as prescribed by G overnment and examination fee in full. Condition No conditions 4. Free education scholarship for three year Diploma (Polytechnic Courses) Free Education (Polytechnic) Backward, Most Backward Classes and Denotified Communities students s tudying in 3 year Diploma courses in Government and Government Aided Polytechnics. Tuition fee, Special fee and non -refundable compulsory fees are paid as prescribed by Government and examination fee in full. Condition for Backward Classes, Most Backward Classes and Denotified Communities students 1) The income of the parents should not exceed Rs.1,00,000/- 2) There should not be any Diploma / Graduate in the family.",
+    "service": "Rural Girls Incentive Scheme",
+    "required_documents": "1. School Certificate\n2. Income Certificate\n3. Community Certificate",
+    "procedure": "- Apply through school\n- Verify rural eligibility\n- Financial incentive provided",
+    "apply_link": "Through School",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 16: 12 5. Free education scholarship for Professional Courses (Enginee ring, Medical, Agriculture, Veterinary and Law) Free Education (Professional) Backward, Most Backward Classes and Denotified Communities students studying in Government and Government Aided Professional Colleges and in Self Financing Professional C olleges under Government quota. Tuition fee, Special fee and other non -refundable compulsory fee s are paid as prescribed by Government and Examination fee in full. Condition for Backward Classes, Most Backward Classes and Denotified Communities students 1) The income of the parents should not exceed Rs.1,00,000/- 2) There should be no graduate in the family.",
+    "service": "Free Bicycle Scheme",
+    "required_documents": "1. School Enrollment Proof",
+    "procedure": "- Students automatically eligible\n- Distribution through schools\n- No application required",
+    "apply_link": "No Application Required",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 17: 13 Prize Schemes to the Students STATE LEVEL PRIZES PUBLIC EXAMINATION 10th Standard and 12th Standard Details of prizes Prize Amount 12th Std 10th Std FIRST PRIZE Four First Prizes for one boy and one girl from Backward Classes and one boy and one girl from Most Backward Classes / Denotified Communities. Rs.50,000/- Rs.25,000/- SECOND PRIZE Four Second Prizes for one boy and one girl from Backward Classes and one boy and one girl from Most Backward Classes / Denotified Communities. Rs.30,000/- Rs.20,000/- THIRD PRIZE Four Third Prizes for one boy and one girl from Backward Classes and one boy and one girl from Most Backward Classes / Denotified Communities. Rs.20,000/- Rs.15,000/- Note- 1. Students should belong to BC/ MBC / DNC 2. There is no income limit for receiving awards. 3. Students studying in Government/Government Aided and Private Schools. 4. Students should have studied Tamil as first Language. 5. State Level Topper students who are awarded prizes in Education Department are not eligible to receive prize in this Department. 6. If more than one student secure same marks, awards are granted to all students.",
+    "service": "Muslim Women Aid Society Scheme",
+    "required_documents": "1. Income Certificate\n2. Identity Proof\n3. Application Form",
+    "procedure": "- Apply through district office\n- Verification by authorities\n- Financial assistance provided",
+    "apply_link": "Through District Collector Office",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 19: 15 PERARIGNAR ANNA MEMORIAL AWARD Name of the Scheme Category Eligibility Prize Amount Perarignar Anna Memorial Award is awarded to the boys and girls who secure the first and second ranks in the 12 th Public examination in each District and pursue their studies in professional colleges in Tamil Nadu. BC ( 2 Boys and 2 Girls) MBC / DNC ( 2 Boys and 2 Girls) Should belong to BC/ MBC/DNC. No income limit Rs.5000/- per annum for 4/5 years Note: If more than one student secure same marks, awards are granted to all of them. THANTHAI PERIYAR MEMORIAL AWARD Name of the Scheme Category Eligibility Prize Amount Thanthai Periyar Memorial Award is awarded to BC/MBC/DNC students who join Polytechnic courses in each district with the highest marks in 10th Public examination. BC ( 2 Boys and 2 Girls) MBC / DNC ( 2 Boys and 2 Girls) Should belong to BC/MBC/ DNC. No income limit Rs.5000/- per annum for 3 years Note: If more than one student secure same marks, awards are granted to all of them.",
+    "service": "Rehabilitation Assistance Scheme",
+    "required_documents": "1. Medical Certificate or Loss Certificate\n2. Income Certificate\n3. Identity Proof",
+    "procedure": "- Submit application to district office\n- Provide proof of impact\n- Verification process\n- Assistance granted",
+    "apply_link": "Through District Office",
     "source": "tn_scholarship.pdf"
   },
   {
     "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 20: 16 Scheme for Meritorious students to pursue Higher Secondary Education in the best schools of TamilNadu Name of the Scheme Category Eligibility Prize Amount Financial assistance is given to 10 students from each district who secure the highest marks in 10 th Public examination by studying in Government High Schools to pursue their higher secondary education in the best private schools of their choice in Tamil Nadu.. BC ( 3 Boys and 3 Girls) MBC / DNC ( 2 Boys and 2 Girls) Should belong to BC/MBC/ DNC/ The parental annual income should not exceed Rs.1.00 lakh Tuition Fees- Rs. 8000/- Maintenance Fees- Rs. 3650/- Hostel Fees- Rs.15000/- Special Coaching Fees- Rs. 1500/- -------------- Total Rs. 28150/- OR Rs.28000/- Under this scheme Maximum of Rs.28,000/- per year per student for 2 years is sanctioned for 11th and 12th Standard Boarding Grants (Backward Classes / Most Backward Classes / Denotified Communities) Concessions Eligibility Officials to be contacted Boarding Grants are given at the rate of Rs.650/- per month for 10 months to the BC,MBC / DNC Students staying in Government approved Private Hostels 1. Parental income should not exceed Rs.50,000/- per annum Administrative head of the Private Hostel concerned. (through District Ba ckward Classes and Minorities Welfare Officers) Students need not apply separately",
+    "service": "Ulema Welfare Board Assistance Scheme",
+    "required_documents": "1. Membership ID\n2. Identity Proof\n3. Supporting Documents",
+    "procedure": "- Apply through Welfare Board\n- Submit required documents\n- Verification process\n- Benefits provided",
+    "apply_link": "Through Welfare Board",
     "source": "tn_scholarship.pdf"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 21: 17 Rural Girls’ incentive Scheme (Most Backward Classes / Denotified Communities Girls only) Concessions Eligibility Officials to be contacted Rs.500/- per annu m for the girl students of Most Backward Classes and Denotified Communities and studying in 3rd Std to 5th std Rs.1000/- per annum for 6th Std. 1. Parental income is Rs.25,000/- per annum. 2. Students studying in Government / Government Aided sch ools in Rural areas. 3. For those belonging to MBC / DNC only. 4.Preference will be given to Girl Children of Widows / Destitutes. Headmaster of the Government / Government Aided Schools concerned in Rural areas. This scheme is implemented in all the Districts except Chennai District. Distribution of Bi-cycles Name of the Scheme Eligibility Officials to be contacted Distribution of Free Bi-cycles Bicycles are supplied to the plus one students of Government, Government aided an d partially aided schools irrespective of income and community. 1. Should be the Students ( Boys & Girls) of +1 in Government, Government aided and partially aided school ( this concession is applicable to the Free bus pass holders also.) 2. No other condition to avail this concession. 3. Students staying in the Hostels situated in the School premises are not eligible for getting free bi-cycles. Concerned School Headmaster",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Encumbrance Certificate (EC)",
+    "required_documents": "1. Property Details\n2. Identity Proof\n3. Address Proof\n4. Sale Deed Copy",
+    "procedure": "- Visit TN Reginet portal\n- Enter property details\n- Select EC period\n- Pay fee\n- Download EC",
+    "apply_link": "https://tnreginet.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 63: 59 IV. Constitution of the existing Commission The Commission has been reconstituted with effect from 5.7.2011, for a te nure of 1 (one) year. The Chairman and Members of the reconstituted Commission are:- 1) Justice.Thiru.M.S.Janarthanam, Retired High Court Judge … Chairman 2) Thiru V.Elumalai, Ex.M.L.A … Member 3) Dr.V.M.Muthukumar … Member 4) Dr. R.Thandavan … Member 5) Thiru D.Sundaram, Professor of Sociology … Member 6) Dr.S.P.Thiyagarajan … Member 7) Thiru. KR.Muruganandam, Ex.M.L.A. … Member Ex-officio Members 8) Director of Backward Classes and Minorities Welfare … Member 9) Commissioner of Most Backward Classes and Denotified Communities … Member-Secretary V. Sending of representation or complaint to the Commission Any representation or complaint to be made to the Tamil Nadu Backward Classes Commission shall be sent, in writing, to the following address:- \"The Member Secretary, Tamil Nadu Backward Classes Commission, 212, R.K. Mutt Road, Mylapore, Chennai 600 004.” VI. Public Information Officer and Appellate Authority designated under the Right to Information Act, 2005 Authority Designation Address Phone Number Fax Number Public Information Officer Under Secretary to Government Tamil Nadu Backward Classes Commission 212, R.K. Mutt Road, Mylapore, Chennai 600 004. 044-24643935 044-24643935 Appellate Authority Member Secretary & Commissioner of Most Backward Classes and",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Patta Chitta (View / Download)",
+    "required_documents": "1. Survey Number\n2. Patta Number\n3. Area Details",
+    "procedure": "- Visit e-Services portal\n- Enter land details\n- Submit request\n- View/download Patta",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 64: 60 DEPARTMENT OF MINORITIES WELFARE A separate Commissionorate for Minorities Welfare to safeguard the education and economic status of the socially backward Minorities and also to implement the Prime Minister’s New 15 Point Programme is functioning in Tamil Nadu. The schemes are implemented by the District Backward Classes and Minorities We lfare Officer at the District level and monitored by the Commissionorate of Minorities Welfare. 2. RESERVATION Separate reservation of 3.5 percent is earmarked to Backward Class Muslims from the existing 30 % reservation for Backward Classes in Tamil Nad u. The application of rule of reservation in the revised rotation is being implemented for Admission in Educational Institutions and appointments in services of the Government and Undertakings. 3. SCHOLARSHIPS The following scholarship sc hemes are implemented for the students belonging to Religious Minorities viz, CHRISTIAN, MUSLIM, SIKH, BUDDHIST AND PARSIS. The students studying in Govt. Govt. Aided/ Recognised Private Educational Institutions may apply for the scholarships. S.No. Name of the Scheme Class/Course Funds Sharing Pattern 1 Merit Cum Means Based Scholarship Professional Courses 100% (Centre) 2 Post-matric Scholarship XI Std to Ph.d level 100% (Centre) 3 Pre-matric Scholarship I to X Std. 75% (Centre) 25% (State)",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Patta Transfer",
+    "required_documents": "1. Sale Deed\n2. EC\n3. Tax Receipt\n4. Aadhaar",
+    "procedure": "- Apply via e-Sevai\n- Upload documents\n- Submit application\n- Track status",
+    "apply_link": "https://tnesevai.tn.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 65: 61 3.1 MERIT CUM MEANS BASED SCHOLARSHIP The students should be studying the following Professional / Technical courses in Under Graduate and Post Graduate level. Engineering & Technology Courses (B.Tech/B.E./M.Tech.) (1) Aeronautical Engineering (AE) (2) Agricultural Engineering (AG), (3) Automobile Engineering (AUE), (4) Applied Electronics & Instrumentation (AEI), (5) Automation and Robotics (ARE), (6) Bio-Medical Engineering (BME), (7) Bio-Technology (BT), (8) Ceramic Engineering/Technology (CT), (9) Chemical Engineering (CH), (10) Civil Engineering (CE), (11) Computer Science and Engineering (CS), (12) Electrical Engineering or Electrical & Electronics Engineering (EEE), (13) Electronics and Communication Engineering (ECE), (14) Environmental Engineering (ENE), (15) Food Technology (FT), (16) Industrial Engineering and Management (IEM), (17) Information Technology (IT), (18) Instrumentation and Control Engineering (ICE), (19) Leather Technology (LT), (20) Marine Engineering (MRE), (21) Materials Science & Technology (MST), (22) Metallurgical Engineering (MT), (23) Mechanical Engineering (ME), (24) Mining Engineering (MN), (25) Oil & Paint Technology (OPT), (26) Polymer Science and Rubber Technology (PSR), (27) Printing Technology (PT), (28) Production Engineering (PE), (29) Pulp & Paper Technology (PPT), (30) Sugar Technology (ST), (31) Textile Engineering/Technology (TXT)",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "FMB Sketch Download",
+    "required_documents": "1. Survey Number\n2. Patta Number",
+    "procedure": "- Visit e-Services\n- Enter survey details\n- Download FMB sketch",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 66: 62 Fashion Technology (Degree from National Institute of Fashion Technology) 1. B.F.Tech (Design): Fashion Design, Leather Design, Accessory Design, Textile Design, Knitwear Design, Fashion Communication. 2. B.F.Tech (Apparel Production). 3. M.F.Tech: Management, Apparel Production, Design Space. Management (1) Post Graduate Diploma in Management (PGDM), (2) Post Graduate Certificate in Management (PGCM), (3) Executive Post Graduate Diploma in Management (Exec-PGDM), (4) Master in Business Administration (MBA). Pharmacy (1) B.Pharma (2) M.Pharma. Architecture & Town Planning (Under Graduate and Post Graduate level courses only) (1) Architecture (AR), (2) Interior Design (ID), (3) Building Construction Technology (BCT), (4) Planning (PL). Hotel Management & Catering Technology (Under Graduate and Post Graduate level courses only) (1) Hotel Management & Catering Technology (HMCT) Applied Arts & Crafts (Under Graduate and Post Graduate level courses only) (1) Applied Arts & Product Design (APD), (2) Fine Arts/Applied Arts/Fine & Applied Arts (FA/AA/FAA), (3) Fashion & Apparel Design (FAD). MCA (1) Master in Computer Application (MCA)",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "A-Register Extract",
+    "required_documents": "1. Survey Number\n2. Village Details",
+    "procedure": "- Visit e-Services\n- Enter land info\n- View extract",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 67: 63 Design (Degree from National Institute of Design, Ahamdabad) (1) Graduate Diploma in Design (2) Post graduate Diploma Programme in Design Medical & Para Medical courses (1) MBBS (2) Bachelor of Ayurvedic Medicine & Surgery (BAMS) (3) Bachelor of Unani Medicine & Surgery (BUMS) (4) Bachelor of Homeopathic Medicine & Surgery) (5) Post Graduate courses (6) Bachelor of Physical Therapy (BPT) (7) Master of Physical Therapy (MPT) (8) Bachelor of occupational Therapy (BOT) (9) Master of occupational Therapy (MOT) (10) B.Sc. Nursing (11) M.Sc. Nursing (12) B.D.S. (13) M.D.S. Veterinary Sciences and Animal Husbandry (1) B.VSc. & A.H. (Bachelor of Veterinary Sciences and Animal Husbandry) (2) PG courses Chartered Accountancy/Institute of Cost and Work Accountancy/Company Secretary (1) CA (Chartered Accountancy) (2) ICWA (Institute of Cost and Work Accountancy) (3) CS (Company Secretary). Law (1) L.L.B. (2) L.L.M. 3.2 The religionwise allocation for MCM Scholarship (Fresh) to Tamil Nadu for 2012-13. Christian Muslim Sikh Buddhist Total 399 366 1 1 767",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Guideline Value Search",
+    "required_documents": "1. Street Name\n2. Area Details",
+    "procedure": "- Visit Reginet\n- Enter location\n- View value",
+    "apply_link": "https://tnreginet.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 68: 64 3.3 Eligibility Criteria Marks Students studying in 1 Year: Should have obtained not less than 50% of marks in +2 For 2nd year: should have obtained not less than 50% of marks in 3 years Diploma Course(Lateral Entry) or First year Examination of Professional Courses For 3rd & 4th Year: Likewise, 50% of marks in the previous year examination of Professional courses Income Annual Income of the Parent/Guardian(from all sources) not exceeding Rs. 2.50 Lakhs 3.4 Rate of Scholarship Details Hosteller Day Scholar Remarks Course fee(Admn.fee, Tuition fee, Library fee, Exam fee & Other Non- refundable fee) Rs. 20000/- Rs. 20000/- Actual course fee paid by the student or Rs.20000 whichever is less Maintenance Allowance Rs.1000/-pm Rs. 500/-pm Subject to maximum of 10 months in an academic year. Note: Students studying in the l isted Institutions (IIT Chennai, NIFT Chennai, NIT Trichy, IIM Trichy and IIT & Design Management Kancheepuam in Tamil Nadu ) notified by the Government of India are eligible to reimburse for full Course fee except refundable fees. 3.5 How to apply by the student  Students pursuing Professional Courses should submit the ir Fresh/Renewal application only through ONLINE in www.momascholarship.gov.in.  After that student should down load the registered online application and submit  along with mark sheets, Community & Inco me Certificates or Self declaration of ",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Document Registration Status",
+    "required_documents": "1. Document Number\n2. Year",
+    "procedure": "- Visit Reginet\n- Enter details\n- Check status",
+    "apply_link": "https://tnreginet.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 69: 65 3.6 Role of Institution:  The Educational Institutions should keep the hardcopy of registered online application along with all the enclosures in the Institution custody for audit purpose.  Forward the online registered Fresh/Renewal application through online www.momascholarship.gov.in to the Directorate of Minorities Welfare, after scrutiny and also to send the respective registered students. For Fresh Scholarship, Marks sheets is also to be sent directly to us within the stipulat ed time (as published in the News paper) for verification purpose. 4. POSTMATRIC SCHOLARSHIP The students should be studying in Std. XI, XII, Vocational for XI & XII Std. ITI/ITCs, NCVT Courses, Under Graduate & Post Graduate Degree courses, Research studies (Ph.D), Polytechnic, Diploma in Teacher Training , Nursing (i-e. the courses which are not covered under Merit-cum-Means Scholarship Schemes) Courses 4.1 The religionwise allocation of Postmatric Scholarship (Fresh) to Tamil Nadu for 2012-13. Christian Muslim Sikh Buddhist Parsis Total 18953 17385 48 48 4 36438 4.2 Eligibility Criteria Marks 50% of marks in the previous year examination Income Annual Income of the Parent/Guardian (from all sources) not exceeding Rs. 2.00 Lakhs",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Certified Copy of Document",
+    "required_documents": "1. Document Number\n2. ID Proof",
+    "procedure": "- Apply online\n- Pay fee\n- Download copy",
+    "apply_link": "https://tnreginet.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 70: 66 4.3 Rate of Scholarship Details of Courses *Max. Admission and Tuition Fees (for Day Scholars & Hosteller) Rs. Maintenance Allowance (Max. 10 month in an academic year) Hosteller Rs. Dayscholar Rs. H.S.C. (10+1 and 10+2) 7000 3800 2300 Technical and Vocational Courses for XI & XII, ITI & ITC including NCVT Courses , Polytechnic, Diploma in Nursing and Teaching Training etc 10000 3800 2300 Under Graduate and Post Graduate Courses 3000 5700 3000 Research studies (Ph.D) NIL 12000 5500 * Actual fee paid by the student or the fee mentioned above whichever is less 4.4 How to apply Scholarship? For the Higher Secondary School students  The simplified application forms can be downl oaded from www.tn.gov.in/bcmbcmw/welfschemes_minorities.htm, all the details should be filled up and submit ted only to the Educational Institutions only within the stipulated time limit as and when advertisement published by the Commissionerate along with Mark sheets, Community & Income Certificates or Self declaration of Parent/Guardian (Affidavit) in Rs. 10/ - Non Judicial Stamp Paper, Present and Permanent Address Proof, F ee receipts etc. Other than Higher Secondary School Students  Students should apply only through on line in website www.momascholarship.gov.in.  Registered application should be downloaded and submitted to Educational Institutions within the stipulated time along with Mark sheets",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Online Land Tax Payment",
+    "required_documents": "1. Patta Number\n2. Owner Details",
+    "procedure": "- Visit e-Services\n- Enter details\n- Pay tax\n- Download receipt",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 71: 67 4.5 Role of the Educational Institution  The Headmaster/Principal of the Institution should receive the filled applications along-with relevant enclosures from the student and keep it in the Institutions in safe custody for audit purpose.  The Headmaster / Principal of the Educational Institution should scrutinize the application carefully after satisfying the above criteria and segregate fresh and renewal applications separately.  Prepare the claims in the prescribed format for fresh and renewal separately in Arial Font (size 12) and send it along with CD to the District Backward Classes and Minorities Welfare Officer, Collectorate in the jurisdiction of the District within the stipulated time. 5. Prematric Scholarships The students should be studying in std. I to X. 5.1 The religionwise allocation of Prematric Scholarship (Fresh) to Tamil Nadu for 2012-13. Christian Muslim Sikh Buddhist Parsis Total 149625 137250 375 375 34 287659 5.2. Eligibility Marks Should have obtained 50% marks in the previous year annual Examination (Except for std. I) Income Annual Income of the Parent/Guardian (from all sources) not exceeding Rs. 1.00 Lakh 5.3 Rate of Scholarship Class * Admn.fee *Tuition fee Maintenance Allowance (Max. 10 month in an academic year) Hosteller Rs. Day scholar Rs. 1 to 5 Nil Nil Nil 1000 6 to 10 500 3500 6000 1000 * Actual fee paid by the student or the fee menti",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Patta Name Change",
+    "required_documents": "1. Sale Deed\n2. Aadhaar\n3. EC",
+    "procedure": "- Apply via e-Sevai\n- Upload documents\n- Submit request",
+    "apply_link": "https://tnesevai.tn.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 72: 68 5.4 How to apply Scholarship?  The simplif ied application forms can be downloaded from www.tn.gov.in/bcmbcmw/welfschemes_minorities.htm, all the details should be filled up and submit ted only to the Educational Institutions on ly within the stipulated time limit as and when advertisement published by the Commissionerate along with Mark sheets, Community & Income Certificates or Self declaration of Parent/Guardian (Affidavit) in Rs. 10/ - Non Judicial Stamp Paper, Present and Perm anent Address Proof, Fee receipts etc 5.5 Role of the Educational Institution  The Headmaster/Principal of the Institution should receive the filled applications along -with relevant enclosures from the student and keep it in the Institutions custody for audit purpose.  The Headmaster/Principal of the Educational Institution should scrutinize the application carefully after satisfying the above criteria and to collate fresh and renewal cases separately. To prepare the claims in the prescribed format for fresh and Renewal separately in Arial Font (size 12) and send it along with CD to the District Backward Classes and Minorities Welfare Officer, Collectorate in the jurisdiction of the District within the stipulated time. General Information 1) 30% exclusive reservation for girl students has been provided for the above said three scholarship schemes of Government of India. 2) The students may app",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Subdivision of Land",
+    "required_documents": "1. Patta Copy\n2. Survey Details\n3. Application Form",
+    "procedure": "- Apply via VAO or e-Sevai\n- Submit documents\n- Survey conducted\n- Approval issued",
+    "apply_link": "Through VAO / e-Sevai",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 73: 69 opted Tamil as first language. All Students who had scored similar marks will be awarded prizes. Prize Std. I Prize Rs. II Prize Rs. III Prize Rs. Document to be submitted and to whom approach the District Official State Level 12 50,000 30,000 20,000 10 / 12 Std. Mark sheet, Community Certificate. District Backward Classes and Minorities Welfare Officer in the respective District Collectorate 10 25,000 20,000 15,000 District Level 12 3,000 2,000 1,000 10 1,500 1,000 500 Student studying in recognized Private Institution is also applicable. The above prize will be given to SC converts to Christianity by the Adi -Dravidar Welfare Department. 7. STATE LEVEL PRIZES FOR URDU STUDENTS State level Pri zes will be given to one boy and one girl who scored the highest marks in 10th and 12th Std in public examination and opted Urdu as first or second language Prize X Std. Rs. 12th Std. Rs. Document to be submitted and to whom approach the District Official First 2000 3000 10/12 Std. Mark sheet, Community Certificate. and District Backward Classes and Minorities Welfare Officer in the respective District Collectorate Second 1500 2000 Third 1000 1000 8. FREE BICYCLES  Free bicycles are suppli ed to the students belonging to Minority Communities and studying +1 std in Govt / Govt. Aided or partly Govt. Aided Schools.  Free Bicyles will also be given to the students, having free bus pass",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Land Survey Request",
+    "required_documents": "1. Application Form\n2. Ownership Proof",
+    "procedure": "- Submit request\n- Pay fee\n- Survey officer visits\n- Report generated",
+    "apply_link": "Through Taluk Office",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 75: 71 10. MUSLIM WOMEN AID SOCIETY  District Muslim Women Aid Society was formed in all the District under the Chairmanship of District Collector for the welfare of Destitute, Abandoned and Old Age Women belonging to Muslim religion  Financial assistance and need based trainings are provided to uplift the livelihood  Matching Grant to a maximum sum of Rs.10 Lakhs per year to each Society equivalent to the amount of donation collected by the Society are sanctioned by the Government. 11. REHABILITATION ASSISTANCE  Financial assistance are provided to the victims of minority people who have been affected due to communal riots and discharged prisoners for petty offence for their rehabilitation.  The victims should have been affected by means of economically or physically and unable to do any work physically or who have not involved in any major offences under IPC or should be the discharged prisoners for petty offence as first instance  If the applicant is physically affected should produce a Medical Certificate from the Medical Officer of District.  If the applicant is economically affected should produce a necessary certificate from the Tahsildar (Revenue Department) for loss of his property.  Petty Offences/punishment should be taken into account as defined under various sections of the IPC  Annual income of the applicant should not exceed Rs. 40000/- for Rural areas and R",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "NOC for Land Use",
+    "required_documents": "1. Land Documents\n2. ID Proof",
+    "procedure": "- Apply at local authority\n- Submit documents\n- Verification\n- NOC issued",
+    "apply_link": "Through Local Authority",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 76: 72 Thaikkahs, Khabarasthan etc. are become eligible for members and availing financial assistance and free bicycle  If the Member shall demise aft er that i) his - wife or her hus band , ii) children, iii) Widow daughter and her children as leg al heirs are covered.  Family means if a male member, his wife, married or unmarried children, dependent parents, daughter -in-law (widow), grand son/daughter are covered.if a female member, her husband, children are covered.  Age between 18 years completed and within 60 years  Identity Card will be given to the Members of the Board at free of cost.  Member should renew their ID cards once in three years 12.1 Details showing financial assistance to the member s of the Ulemas and Other Personnel Welfare Board. S.No. Details of Assistance Assistance Rs. 1 Accidental Insurance a) Fatal due to accident 1.00 Lakh b)handicapped due to accident (with reference to percentage of handicapness) 10,000 to 1.00 Lakh 2 Natural Death 15000 3 Funeral Expenses 2000 4 Scholarship a)Girl student studying in X Std. 1000 b)student passed in X Std. 1000 c)Girl student studying in XI Std. 1000 d)Girl student studying in XII Std. 1500 e)student passed in XII std. 1500 f) student studying Degree Courses(Day Scholar) 1500 g) student studying Degree Courses(Hosteller) 1750 h) student studying Post Graduate Courses(Day Scholar) 2000 i) student studying Post Gr",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Chitta Extract",
+    "required_documents": "1. Survey Number\n2. Area Details",
+    "procedure": "- Visit e-Services\n- Enter details\n- View Chitta",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
   },
   {
-    "category": "schemes",
-    "service": "TN Scholarship Schemes",
-    "text": "Page 77: 73 l) student studying Postgraduate Professional Courses(Day Scholar) 4000 m) student studying in Postgraduate Professional Courses(Hosteller) 6000 n)student studying in ITI/Polytechnic 1000 o)student studying in ITI/Polytechnic(Hosteller) 1200 5 Marriage assistance 2000 6 Maternity Assistance a) Pregnancy period : Rs.1000/ - per month for six months 6000 b) Abortion 3000 7 Reimbursement for cost of Spectacle 500 (Maximum) 8 Old Age Pension 500 per month Note: Members cannot avail the assistance in this welfare Board if they availed the same assistance from any other Welfare Board. List of Public Information Officer and Appellate Authority under RTI Act,2005. Official Designation Office Address Contact No. Fax No. Public Information Officer Personal Assistant to Commissioner Directorate of Minorities Welfare, 807, (V Floor) Anna Salai , Chennai-2 044 28543117 044 28544545 Appellate Authority Commissioner of Minorities Welfare Directorate of Minorities Welfare, 807, (V Floor) Anna Salai , Chennai-2 044 28515050 044 28544545",
-    "source": "tn_scholarship.pdf"
+    "category": "land_services",
+    "service": "Adangal Extract",
+    "required_documents": "1. Survey Number\n2. Village Details",
+    "procedure": "- Visit e-Services\n- Enter details\n- View Adangal",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
+  },
+  {
+    "category": "land_services",
+    "service": "Land Ownership Verification",
+    "required_documents": "1. Patta\n2. EC\n3. ID Proof",
+    "procedure": "- Visit e-Sevai\n- Submit request\n- Verification process\n- Get confirmation",
+    "apply_link": "https://tnesevai.tn.gov.in/",
+    "source": "tn_land_services"
+  },
+  {
+    "category": "land_services",
+    "service": "Apply for House Site Patta",
+    "required_documents": "1. Income Certificate\n2. Address Proof\n3. ID Proof",
+    "procedure": "- Apply via e-Sevai\n- Submit documents\n- Verification\n- Patta issued",
+    "apply_link": "https://tnesevai.tn.gov.in/",
+    "source": "tn_land_services"
+  },
+  {
+    "category": "land_services",
+    "service": "Land Conversion (Agricultural to Residential)",
+    "required_documents": "1. Patta\n2. EC\n3. Application Form",
+    "procedure": "- Apply to district office\n- Submit documents\n- Inspection\n- Approval granted",
+    "apply_link": "Through District Collector Office",
+    "source": "tn_land_services"
+  },
+  {
+    "category": "land_services",
+    "service": "Check Survey Number Details",
+    "required_documents": "1. Survey Number",
+    "procedure": "- Visit e-Services\n- Enter survey number\n- View details",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
+  },
+  {
+    "category": "land_services",
+    "service": "Village Map Download",
+    "required_documents": "1. Village Name\n2. Survey Info",
+    "procedure": "- Visit portal\n- Select village\n- Download map",
+    "apply_link": "https://eservices.tn.gov.in/",
+    "source": "tn_land_services"
   }
 ]

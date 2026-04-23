@@ -37,3 +37,26 @@ body {
 .message-enter {
   animation: rise 0.35s ease-out;
 }
+
+.chat-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.chat-link:hover,
+.chat-link:focus-visible {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.assistant-link {
+  color: #0b5fcc;
+}
+
+.user-link {
+  color: #9de8ff;
+}

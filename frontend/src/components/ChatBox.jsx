@@ -6,8 +6,6 @@ export default function ChatBox({
   onSend,
   isLoading,
   error,
-  streamEnabled,
-  onToggleStream,
 }) {
   const [input, setInput] = useState("");
   const listRef = useRef(null);
@@ -74,17 +72,6 @@ export default function ChatBox({
           />
         </div>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <button
-            type="button"
-            onClick={onToggleStream}
-            className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-widest transition ${
-              streamEnabled
-                ? "border-ink bg-ink text-mist"
-                : "border-ink/30 bg-white text-ink"
-            }`}
-          >
-            Stream {streamEnabled ? "On" : "Off"}
-          </button>
           <button
             type="submit"
             disabled={isLoading}

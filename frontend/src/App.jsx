@@ -23,10 +23,8 @@ function ChatApp() {
   const [activeId, setActiveId] = useState(conversations[0].id);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [streamEnabled, setStreamEnabled] = useState(true);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   const activeConversation = useMemo(
     () => conversations.find((conv) => conv.id === activeId),
@@ -99,7 +97,7 @@ function ChatApp() {
       const reply = await askQuestion({
         question: text.trim(),
         history,
-        stream: streamEnabled,
+        stream: false,
         onToken: (chunk) => {
           receivedToken = true;
           updateConversation(activeConversation.id, (conv) => ({
@@ -115,7 +113,7 @@ function ChatApp() {
 
       // If streaming is off, or backend returned a plain JSON answer while stream is on,
       // write the full reply to ensure the assistant message is visible.
-      if (!streamEnabled || !receivedToken) {
+      if (!receivedToken) {
         updateConversation(activeConversation.id, (conv) => ({
           ...conv,
           messages: conv.messages.map((msg) =>
@@ -231,15 +229,6 @@ function ChatApp() {
                 </div>
               )}
             </div>
-            <div className="mt-4 rounded-2xl border border-ink/10 bg-white/60 p-3">
-              <button
-                type="button"
-                onClick={() => setIsSettingsOpen(true)}
-                className="w-full rounded-xl border border-ink/10 bg-white px-3 py-2 text-left text-sm font-semibold text-ink"
-              >
-                Settings
-              </button>
-            </div>
             <div className="mt-auto pt-4">
               <div className="flex items-center justify-between gap-3 rounded-2xl border border-ink/10 bg-white/60 p-3">
                 <button
@@ -287,24 +276,6 @@ function ChatApp() {
                   Powered by retrieval + official application links
                 </p>
               </div>
-              <div className="flex items-center gap-3 text-sm text-ink/70">
-                <span>Streaming</span>
-                <button
-                  type="button"
-                  className={`h-7 w-12 rounded-full border transition ${
-                    streamEnabled
-                      ? "border-ink bg-ink"
-                      : "border-ink/30 bg-white"
-                  }`}
-                  onClick={() => setStreamEnabled((prev) => !prev)}
-                >
-                  <span
-                    className={`block h-5 w-5 translate-x-1 rounded-full bg-mist transition ${
-                      streamEnabled ? "translate-x-6" : ""
-                    }`}
-                  />
-                </button>
-              </div>
             </div>
 
             <div className="mt-6">
@@ -313,55 +284,10 @@ function ChatApp() {
                 onSend={handleSend}
                 isLoading={isLoading}
                 error={error}
-                streamEnabled={streamEnabled}
-                onToggleStream={() => setStreamEnabled((prev) => !prev)}
               />
             </div>
           </div>
         </main>
-      </div>
-
-      <div
-        className={`fixed inset-0 z-[60] bg-ink/50 transition-opacity ${
-          isSettingsOpen ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        onClick={() => setIsSettingsOpen(false)}
-        role="presentation"
-      />
-      <div
-        className={`fixed left-1/2 top-1/2 z-[70] w-[92vw] max-w-lg -translate-x-1/2 rounded-3xl bg-white p-6 shadow-glow transition-transform ${
-          isSettingsOpen ? "-translate-y-1/2" : "-translate-y-[60%] opacity-0"
-        }`}
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-ink/40">
-              Settings
-            </p>
-            <h2 className="font-display text-2xl text-ink">Account preferences</h2>
-          </div>
-          <button
-            type="button"
-            onClick={() => setIsSettingsOpen(false)}
-            className="rounded-full border border-ink/20 px-3 py-1 text-xs font-semibold text-ink"
-          >
-            Close
-          </button>
-        </div>
-        <div className="mt-5 space-y-4 text-sm text-ink/70">
-          <div className="rounded-2xl border border-ink/10 bg-mist/60 p-4">
-            <p className="font-semibold text-ink">Notifications</p>
-            <p className="mt-1">Email alerts for replies and application updates.</p>
-          </div>
-          <div className="rounded-2xl border border-ink/10 bg-mist/60 p-4">
-            <p className="font-semibold text-ink">Language & region</p>
-            <p className="mt-1">Set Tamil or English answers and local office info.</p>
-          </div>
-          <div className="rounded-2xl border border-ink/10 bg-mist/60 p-4">
-            <p className="font-semibold text-ink">Data & privacy</p>
-            <p className="mt-1">Manage saved chats and data retention settings.</p>
-          </div>
-        </div>
       </div>
     </div>
   );

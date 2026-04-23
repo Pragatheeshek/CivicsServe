@@ -1,11 +1,28 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { login } from "../api";
 
 export default function Login() {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    navigate("/app");
+
+    setSubmitting(true);
+    setError("");
+
+    try {
+      await login({ email, password });
+      navigate("/app");
+    } catch (err) {
+      setError(err?.message || "Login failed.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -44,6 +61,8 @@ export default function Login() {
               <input
                 type="email"
                 placeholder="you@email.com"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
                 className="mt-2 w-full rounded-2xl border border-ink/20 bg-white px-4 py-3 text-sm focus:border-ink focus:outline-none"
               />
             </div>
@@ -54,15 +73,23 @@ export default function Login() {
               <input
                 type="password"
                 placeholder="••••••••"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
                 className="mt-2 w-full rounded-2xl border border-ink/20 bg-white px-4 py-3 text-sm focus:border-ink focus:outline-none"
               />
             </div>
             <button
               type="submit"
+              disabled={submitting}
               className="mt-2 rounded-full bg-brass px-6 py-3 text-sm font-semibold text-mist shadow-glow transition hover:translate-y-[-1px]"
             >
-              Sign in
+              {submitting ? "Signing in..." : "Sign in"}
             </button>
+            {error && (
+              <p className="rounded-xl border border-clay/40 bg-clay/10 px-3 py-2 text-xs text-clay">
+                {error}
+              </p>
+            )}
             <Link to="/" className="text-xs text-ink/60">
               Back to home
             </Link>

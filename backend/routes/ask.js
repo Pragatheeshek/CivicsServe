@@ -35,7 +35,14 @@ function setCachedAnswer(key, answer) {
 }
 
 function getChunkText(chunk) {
-	return String(chunk?.text || chunk?.content || "");
+	const textParts = [
+		chunk?.text,
+		chunk?.content,
+		chunk?.required_documents,
+		chunk?.procedure
+	].filter(Boolean);
+
+	return String(textParts.join("\n") || "");
 }
 
 function extractDocumentsFromText(text) {
@@ -51,18 +58,31 @@ function extractDocumentsFromText(text) {
 	return documents;
 }
 
-function buildCertificateAnswer(service, source, documents) {
+function extractProcedureStepsFromText(text) {
+	const lines = String(text || "")
+		.split(/\r?\n/)
+		.map((line) => line.trim())
+		.filter(Boolean)
+		.map((line) => line.replace(/^[-*]\s*/, "").replace(/^\d+[.)]\s*/, "").trim())
+		.filter(Boolean);
+
+	return lines;
+}
+
+function buildCertificateAnswer(service, source, documents, procedureSteps = [], pdfLink = "") {
 	const portal = source || "https://www.tnesevai.tn.gov.in/";
 	const safeService = service || "Certificate Service";
 
-	const procedure = [
-		"1. Visit the official portal and open certificate services.",
-		`2. Select \"${safeService}\" from the service list.`,
-		"3. Enter applicant details and verify address/identity fields.",
-		"4. Upload the required documents listed below.",
-		"5. Submit the application and save the acknowledgement number.",
-		"6. Track status on the same portal using your application reference."
-	];
+	const procedure = procedureSteps.length > 0
+		? procedureSteps
+		: [
+			"Visit the official portal and open certificate services.",
+			`Select \"${safeService}\" from the service list.`,
+			"Enter applicant details and verify address/identity fields.",
+			"Upload the required documents listed below.",
+			"Submit the application and save the acknowledgement number.",
+			"Track status on the same portal using your application reference."
+		];
 
 	const documentLines = documents.length > 0
 		? documents.map((doc, index) => `${index + 1}. ${doc}`)
@@ -72,14 +92,26 @@ function buildCertificateAnswer(service, source, documents) {
 		`Service: ${safeService}`,
 		"",
 		"Procedure:",
-		...procedure,
+		...procedure.map((step, index) => `${index + 1}. ${step}`),
 		"",
 		"Documents Required:",
 		...documentLines,
 		"",
 		`Official Portal: ${portal}`,
-		`Apply Here: ${portal}`
+		`Apply Here: ${portal}`,
+		...(pdfLink ? [`Full Procedure PDF: ${pdfLink}`] : [])
 	].join("\n");
+}
+
+function sanitizeAnswerText(text) {
+	return String(text || "")
+		// CSI/SGR escape sequences like: \u001b[62D\u001b[K
+		.replace(/\u001B\[[0-?]*[ -/]*[@-~]/g, "")
+		// OSC escape sequences
+		.replace(/\u001B\][^\u0007]*(\u0007|\u001B\\)/g, "")
+		.replace(/\r/g, "")
+		.replace(/\n{3,}/g, "\n\n")
+		.trim();
 }
 
 function splitEvidenceLines(text) {
@@ -284,7 +316,7 @@ function runOllama(prompt, model) {
 				return;
 			}
 
-			resolve(stdout.trim());
+			resolve(sanitizeAnswerText(stdout));
 		});
 	});
 }
@@ -314,6 +346,12 @@ router.post("/", async (req, res) => {
 
 		if (!query) {
 			return res.status(400).json({ error: "Query is required." });
+		}
+
+		if (/^(hi|hello|hey|vanakkam|good\s*(morning|afternoon|evening))\b/i.test(normalizedQuery)) {
+			return res.json({
+				answer: "Hello. I can help with Tamil Nadu certificates, schemes, and land services. Ask me a specific service like Community Certificate, Patta Transfer, or Pre Matric Scholarship."
+			});
 		}
 
 		const catalog = getServiceCatalog();
@@ -375,6 +413,12 @@ router.post("/", async (req, res) => {
 		}
 
 		let chunks = retrieveRelevantChunks(query, 2);
+		if (chunks.length === 0) {
+			return res.json({
+				answer: "I could not find matching data for that query. Please ask about a specific certificate, scheme, or land service available in the dataset."
+			});
+		}
+
 		const schemeChunks = chunks.filter((chunk) => String(chunk.category || "").toLowerCase() === "schemes");
 		const topChunk = chunks.length > 0 ? chunks[0] : null;
 
@@ -395,9 +439,10 @@ router.post("/", async (req, res) => {
 		if (topChunk && String(topChunk.category || "").toLowerCase() === "certificates") {
 			const services = [topChunk.service];
 			const link = findApplyLink(query, services);
-			const source = (link && link.url) || topChunk.source;
-			const documents = extractDocumentsFromText(getChunkText(topChunk));
-			const answer = buildCertificateAnswer(topChunk.service, source, documents);
+			const source = (link && link.url) || topChunk.apply_link || topChunk.source;
+			const documents = extractDocumentsFromText(topChunk.required_documents || getChunkText(topChunk));
+			const procedure = extractProcedureStepsFromText(topChunk.procedure || "");
+			const answer = buildCertificateAnswer(topChunk.service, source, documents, procedure, topChunk.pdf_link || "");
 			setCachedAnswer(cacheKey, answer);
 			return res.json({ answer });
 		}
@@ -405,11 +450,12 @@ router.post("/", async (req, res) => {
 		const prompt = buildPrompt(query, chunks);
 		const speedPrompt = [
 			"Give a concise answer in 5-7 lines.",
+			"Respond only in clear English.",
 			"Avoid long explanations and bullet overload.",
 			"",
 			prompt
 		].join("\n");
-		const llmAnswer = await generateWithFallback(speedPrompt);
+		const llmAnswer = sanitizeAnswerText(await generateWithFallback(speedPrompt));
 		setCachedAnswer(cacheKey, llmAnswer);
 
 		const services = chunks.length > 0 ? [chunks[0].service] : [];
