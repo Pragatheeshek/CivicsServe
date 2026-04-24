@@ -12,6 +12,22 @@ import Home from "./pages/Home.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
 
+function SplashScreen() {
+  return (
+    <div className="splash-screen">
+      <div className="splash-content">
+        <img
+          src="/civicsserve-logo.png"
+          alt="CivicsServe logo"
+          className="splash-logo"
+        />
+        <h1 className="splash-title">CivicsServe</h1>
+        <p className="splash-subtitle">Tamil Nadu Citizen Assistant</p>
+      </div>
+    </div>
+  );
+}
+
 const makeId = () =>
   `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
 
@@ -21,9 +37,13 @@ const createConversation = (label = "New chat") => ({
   messages: [],
 });
 
+const TYPE_DELAY_MS = 14;
+const sleep = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
 function ChatApp() {
   const navigate = useNavigate();
   const [currentUser] = useState(() => getCurrentUser());
+  const isGuest = !currentUser?.id;
   const [conversations, setConversations] = useState([
     createConversation("Welcome"),
   ]);
@@ -89,6 +109,33 @@ function ChatApp() {
     );
   };
 
+  const typeAssistantReply = async (conversationId, messageId, fullText) => {
+    const safeText = String(fullText || "");
+
+    for (let index = 0; index < safeText.length; index += 1) {
+      const nextChunk = safeText.slice(0, index + 1);
+      updateConversation(conversationId, (conv) => ({
+        ...conv,
+        messages: conv.messages.map((msg) =>
+          msg.id === messageId
+            ? { ...msg, content: nextChunk, isTyping: true }
+            : msg
+        ),
+      }));
+      // Small delay makes output feel natural instead of instant dump.
+      await sleep(TYPE_DELAY_MS);
+    }
+
+    updateConversation(conversationId, (conv) => ({
+      ...conv,
+      messages: conv.messages.map((msg) =>
+        msg.id === messageId
+          ? { ...msg, content: safeText, isTyping: false }
+          : msg
+      ),
+    }));
+  };
+
   const handleNewConversation = () => {
     const fresh = createConversation("New chat");
     setConversations((prev) => [fresh, ...prev]);
@@ -96,14 +143,18 @@ function ChatApp() {
   };
 
   const handleSend = async (text) => {
-    if (!text.trim() || !activeConversation || !currentUser?.id) {
+    if (!text.trim() || !activeConversation) {
       return;
     }
+
+    const conversationId = activeConversation.id;
+    const existingMessages = activeConversation.messages;
+    const normalizedText = text.trim();
 
     const userMessage = {
       id: makeId(),
       role: "user",
-      content: text.trim(),
+      content: normalizedText,
       timestamp: new Date().toISOString(),
     };
 
@@ -111,18 +162,19 @@ function ChatApp() {
       id: makeId(),
       role: "assistant",
       content: "",
+      isTyping: true,
       timestamp: new Date().toISOString(),
     };
 
-    const history = [...activeConversation.messages, userMessage].map(
+    const history = [...existingMessages, userMessage].map(
       ({ role, content }) => ({ role, content })
     );
 
-    updateConversation(activeConversation.id, (conv) => ({
+    updateConversation(conversationId, (conv) => ({
       ...conv,
       title:
         conv.messages.length === 0
-          ? text.slice(0, 42)
+          ? normalizedText.slice(0, 42)
           : conv.title,
       messages: [...conv.messages, userMessage, assistantMessage],
     }));
@@ -131,89 +183,55 @@ function ChatApp() {
     setError("");
 
     try {
-      let receivedToken = false;
       const reply = await askQuestion({
-        question: text.trim(),
+        question: normalizedText,
         history,
         stream: false,
-        onToken: (chunk) => {
-          receivedToken = true;
-          updateConversation(activeConversation.id, (conv) => ({
-            ...conv,
-            messages: conv.messages.map((msg) =>
-              msg.id === assistantMessage.id
-                ? { ...msg, content: msg.content + chunk }
-                : msg
-            ),
-          }));
-        },
       });
 
-      let finalMessages = activeConversation.messages;
+      const finalReply = String(reply || "").trim() || "Sorry, I could not fetch a response.";
+      await typeAssistantReply(conversationId, assistantMessage.id, finalReply);
 
-      // If streaming is off, or backend returned a plain JSON answer while stream is on,
-      // write the full reply to ensure the assistant message is visible.
-      if (!receivedToken) {
-        finalMessages = [...activeConversation.messages, userMessage, {
-          ...assistantMessage,
-          content: reply,
-        }];
+      const finalMessages = [
+        ...existingMessages,
+        userMessage,
+        { ...assistantMessage, content: finalReply, isTyping: false },
+      ];
 
-        updateConversation(activeConversation.id, (conv) => ({
-          ...conv,
-          messages: conv.messages.map((msg) =>
-            msg.id === assistantMessage.id
-              ? { ...msg, content: reply }
-              : msg
-          ),
-        }));
-      }
-
-      if (receivedToken) {
-        finalMessages = [...activeConversation.messages, userMessage, {
-          ...assistantMessage,
-          content: reply,
-        }];
-      }
-
-      await saveUserChatHistory({
-        userId: currentUser.id,
-        messages: finalMessages.map((msg) => ({
-          role: msg.role,
-          content: msg.content,
-          timestamp: msg.timestamp,
-        })),
-      });
-    } catch (err) {
-      setError(err?.message || "Something went wrong.");
-      const failedMessages = [...activeConversation.messages, userMessage, {
-        ...assistantMessage,
-        content: "Sorry, I could not fetch a response.",
-      }];
-
-      updateConversation(activeConversation.id, (conv) => ({
-        ...conv,
-        messages: conv.messages.map((msg) =>
-          msg.id === assistantMessage.id
-            ? {
-                ...msg,
-                content: "Sorry, I could not fetch a response.",
-              }
-            : msg
-        ),
-      }));
-
-      try {
+      if (currentUser?.id) {
         await saveUserChatHistory({
           userId: currentUser.id,
-          messages: failedMessages.map((msg) => ({
+          messages: finalMessages.map((msg) => ({
             role: msg.role,
             content: msg.content,
             timestamp: msg.timestamp,
           })),
         });
-      } catch {
-        // Ignore chat save failures here.
+      }
+    } catch (err) {
+      setError(err?.message || "Something went wrong.");
+      const fallback = "Sorry, I could not fetch a response.";
+      await typeAssistantReply(conversationId, assistantMessage.id, fallback);
+
+      const failedMessages = [
+        ...existingMessages,
+        userMessage,
+        { ...assistantMessage, content: fallback, isTyping: false },
+      ];
+
+      if (currentUser?.id) {
+        try {
+          await saveUserChatHistory({
+            userId: currentUser.id,
+            messages: failedMessages.map((msg) => ({
+              role: msg.role,
+              content: msg.content,
+              timestamp: msg.timestamp,
+            })),
+          });
+        } catch {
+          // Ignore chat save failures here.
+        }
       }
     } finally {
       setIsLoading(false);
@@ -221,19 +239,25 @@ function ChatApp() {
   };
 
   const handleLogout = () => {
+    if (isGuest) {
+      navigate("/");
+      return;
+    }
+
     clearAuthSession();
     navigate("/login");
   };
 
   const handleAccount = () => {
+    if (isGuest) {
+      navigate("/login");
+      return;
+    }
+
     navigate("/app");
   };
 
-  if (!currentUser?.id) {
-    return <Navigate to="/login" replace />;
-  }
-
-  const initials = (currentUser.name || "CS")
+  const initials = (isGuest ? "G" : currentUser.name || "CS")
     .split(" ")
     .map((part) => part[0])
     .join("")
@@ -332,13 +356,13 @@ function ChatApp() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-semibold text-ink">
-                      {currentUser.name || "My Account"}
+                      {isGuest ? "Guest User" : currentUser.name || "My Account"}
                     </p>
                     <p
                       className="truncate text-xs text-ink/60"
-                      title={currentUser.email || "Manage profile"}
+                      title={isGuest ? "Login to save chat history" : currentUser.email || "Manage profile"}
                     >
-                      {currentUser.email || "Manage profile"}
+                      {isGuest ? "Login to save chat history" : currentUser.email || "Manage profile"}
                     </p>
                   </div>
                 </button>
@@ -347,7 +371,7 @@ function ChatApp() {
                   onClick={handleLogout}
                   className="mt-3 w-full rounded-xl bg-ink px-3 py-2 text-sm font-semibold text-mist"
                 >
-                  Logout
+                  {isGuest ? "Back to Home" : "Logout"}
                 </button>
               </div>
             </div>
@@ -366,6 +390,11 @@ function ChatApp() {
                   >
                     ≡
                   </button>
+                  <img
+                    src="/civicsserve-logo.png"
+                    alt="CiviServe AI"
+                    className="h-10 w-10 object-contain sm:h-12 sm:w-12"
+                  />
                   <h1 className="font-display text-2xl text-ink sm:text-3xl">
                     Ask about civic services
                   </h1>
@@ -392,6 +421,20 @@ function ChatApp() {
 }
 
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setShowSplash(false);
+    }, 1600);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  if (showSplash) {
+    return <SplashScreen />;
+  }
+
   return (
     <BrowserRouter>
       <Routes>

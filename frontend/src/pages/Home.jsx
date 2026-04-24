@@ -1,67 +1,135 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import Navbar from "../components/home/Navbar";
+import FeatureCard from "../components/home/FeatureCard";
+
+const ICONS = {
+  schemes: (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 10l9-6 9 6-9 6-9-6z" />
+      <path d="M7 12v5a2 2 0 002 2h6a2 2 0 002-2v-5" />
+    </svg>
+  ),
+  certificates: (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="4" y="3" width="16" height="18" rx="2" />
+      <path d="M8 8h8M8 12h6" />
+    </svg>
+  ),
+  land: (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 20h18" />
+      <path d="M5 20V9l7-5 7 5v11" />
+    </svg>
+  ),
+  apply: (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M12 5v14" />
+      <path d="M5 12h14" />
+    </svg>
+  ),
+};
 
 export default function Home() {
+  const [showSkeleton, setShowSkeleton] = useState(true);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setShowSkeleton(false), 700);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-inkwash px-4 py-8 sm:px-6 sm:py-10">
-      <div className="mx-auto max-w-5xl">
-        <div className="surface-card grid gap-6 rounded-3xl border border-ink/10 bg-white p-6 shadow-glow sm:p-8 md:grid-cols-[1.25fr_1fr]">
-          <div className="space-y-5">
-            <div className="flex items-center gap-3">
-              <img
-                src="/civicsserve-logo.svg"
-                alt="CivicsServe logo"
-                className="h-11 w-11"
-              />
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-ink/70">
-                  CivicsServe
-                </p>
-                <p className="text-xs text-ink/50">Tamil Nadu Citizen Assistant</p>
-              </div>
-            </div>
+    <div className="min-h-screen scroll-smooth bg-inkwash">
+      <Navbar />
 
-            <h1 className="font-display text-3xl leading-tight text-ink sm:text-4xl md:text-5xl">
-              Fast help for certificates and citizen services
-            </h1>
+      <main id="home" className="mx-auto w-full max-w-6xl px-4 pb-14 pt-8 sm:px-6 sm:pt-12">
+        <motion.section
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="surface-card rounded-3xl border border-river/10 bg-white/85 p-6 shadow-glow sm:p-10"
+        >
+          <p className="mb-3 inline-flex rounded-full bg-river/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-river">
+            AI Civic Assistant
+          </p>
 
-            <p className="max-w-xl text-sm text-ink/70 sm:text-base">
-              Ask a question. Get the right documents, steps, and official apply links.
-            </p>
+          <h1 className="font-display text-4xl text-ink sm:text-5xl">CiviServe AI</h1>
+          <p className="mt-2 text-sm text-ink/70 sm:text-base">
+            Smart assistance for every civic service in one place.
+          </p>
 
-            <div className="flex flex-col gap-3 sm:flex-row">
+          <div className="mt-6 rounded-2xl border border-river/15 bg-white/85 p-4 sm:p-5">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-river">Quick Actions</p>
+            <div className="mt-3 grid gap-3 sm:grid-cols-3">
               <Link
                 to="/app"
-                className="rounded-full bg-ink px-7 py-3 text-center text-sm font-semibold text-mist transition hover:bg-river"
+                className="rounded-xl bg-ink px-4 py-3 text-center text-sm font-semibold text-mist transition hover:scale-[1.02] hover:bg-river"
               >
-                Continue as guest
+                Continue as Guest
               </Link>
               <Link
                 to="/login"
-                className="rounded-full border border-ink/20 bg-white px-7 py-3 text-center text-sm font-semibold text-ink transition hover:border-river/40"
+                className="rounded-xl border border-ink/20 bg-white px-4 py-3 text-center text-sm font-semibold text-ink transition hover:scale-[1.02] hover:border-river/40"
               >
                 Login
               </Link>
+              <Link
+                to="/signup"
+                className="rounded-xl border border-brass/25 bg-brass/10 px-4 py-3 text-center text-sm font-semibold text-brass transition hover:scale-[1.02] hover:bg-brass/20"
+              >
+                Create Account
+              </Link>
             </div>
 
-            <Link to="/signup" className="inline-block text-xs font-semibold text-river hover:text-ink">
-              New user? Create account
-            </Link>
-          </div>
-
-          <div className="rounded-2xl border border-ink/10 bg-white/70 p-6">
-            <p className="text-sm font-semibold text-ink">Try quick questions</p>
-            <ul className="mt-4 space-y-2 text-sm text-ink/70">
-              <li>What certificates are available?</li>
-              <li>How to apply for Income Certificate?</li>
-              <li>Documents required for Nativity Certificate?</li>
-            </ul>
-
-            <div className="mt-5 rounded-xl border border-ink/10 bg-white px-4 py-3 text-xs text-ink/60">
-              Official links only. Clear steps only.
+            <div className="mt-4 flex flex-wrap gap-2">
+              {[
+                "Check schemes",
+                "Apply certificates",
+                "Land services",
+                "Track application",
+              ].map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  className="rounded-full border border-river/20 bg-river/5 px-3 py-1.5 text-xs font-semibold text-river transition hover:scale-105 hover:bg-river/10"
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
-        </div>
-      </div>
+        </motion.section>
+
+        <section id="services" className="mt-10">
+          <div className="mb-4 flex items-center justify-between">
+            <h2 className="text-lg font-semibold text-ink">Services</h2>
+            <span className="text-xs font-semibold uppercase tracking-[0.16em] text-ink/50">Explore</span>
+          </div>
+
+          {showSkeleton ? (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {Array.from({ length: 4 }).map((_, index) => (
+                <div key={index} className="h-28 animate-pulse rounded-2xl border border-river/10 bg-white/70" />
+              ))}
+            </div>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <FeatureCard icon={ICONS.schemes} label="Schemes" delay={0.05} />
+              <FeatureCard icon={ICONS.certificates} label="Certificates" delay={0.1} />
+              <FeatureCard icon={ICONS.land} label="Land Services" delay={0.15} />
+              <FeatureCard icon={ICONS.apply} label="Apply Services" delay={0.2} />
+            </div>
+          )}
+        </section>
+
+        <section id="about" className="mt-12 rounded-2xl border border-river/10 bg-white/75 p-5">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-river">About</p>
+          <p className="mt-2 text-sm text-ink/70">
+            CiviServe AI helps citizens quickly find service guidance with cleaner steps and faster access.
+          </p>
+        </section>
+      </main>
     </div>
   );
 }

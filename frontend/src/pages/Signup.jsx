@@ -1,24 +1,89 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { signup } from "../api";
+import AuthLayout from "../components/auth/AuthLayout";
+import AuthInput from "../components/auth/AuthInput";
+import Button from "../components/ui/Button";
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function UserIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20a8 8 0 0116 0" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="M3 7l9 7 9-7" />
+    </svg>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="5" y="11" width="14" height="10" rx="2" />
+      <path d="M8 11V8a4 4 0 018 0v3" />
+    </svg>
+  );
+}
 
 export default function Signup() {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [fieldErrors, setFieldErrors] = useState({});
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const nextErrors = {};
+    if (!name.trim()) {
+      nextErrors.name = "Name is required.";
+    }
+
+    if (!email.trim()) {
+      nextErrors.email = "Email is required.";
+    } else if (!EMAIL_REGEX.test(email.trim())) {
+      nextErrors.email = "Enter a valid email.";
+    }
+
+    if (!password) {
+      nextErrors.password = "Password is required.";
+    } else if (password.length < 6) {
+      nextErrors.password = "Use at least 6 characters.";
+    }
+
+    if (!confirmPassword) {
+      nextErrors.confirmPassword = "Confirm your password.";
+    } else if (confirmPassword !== password) {
+      nextErrors.confirmPassword = "Passwords do not match.";
+    }
+
+    setFieldErrors(nextErrors);
+    if (Object.keys(nextErrors).length > 0) {
+      return;
+    }
 
     setSubmitting(true);
     setError("");
 
     try {
       await signup({ name, email, password });
-      navigate("/login");
+      setSuccess(true);
+      setTimeout(() => navigate("/login"), 900);
     } catch (err) {
       setError(err?.message || "Signup failed.");
     } finally {
@@ -27,88 +92,90 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-inkwash px-4 py-8 sm:px-6 sm:py-10">
-      <div className="mx-auto max-w-5xl">
-        <div className="surface-card grid gap-8 rounded-3xl p-6 shadow-glow sm:p-8 md:grid-cols-[1.2fr_1fr]">
-          <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-ink/50">
-              CivicsServe
-            </p>
-            <h1 className="font-display text-3xl text-ink sm:text-4xl md:text-4xl">
-              Create your CivicsServe account
-            </h1>
-            <p className="mt-3 text-sm text-ink/70">
-              Get personalized guidance, save your progress, and receive timely
-              updates on your civic applications.
-            </p>
-            <div className="mt-6 rounded-2xl border border-ink/10 bg-white/60 p-4">
-              <p className="text-sm text-ink/70">
-                Already have an account? Sign in and continue your ongoing
-                requests.
-              </p>
-              <Link
-                to="/login"
-                className="mt-4 inline-flex w-full justify-center rounded-full bg-ink px-5 py-2 text-sm font-semibold text-mist sm:w-auto"
-              >
-                Sign in
-              </Link>
-            </div>
-          </div>
-          <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-            <div>
-              <label className="text-xs uppercase tracking-widest text-ink/40">
-                Full name
-              </label>
-              <input
-                type="text"
-                placeholder="Your name"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
-                className="mt-2 w-full rounded-2xl border border-ink/20 bg-white px-4 py-3 text-sm focus:border-ink focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="text-xs uppercase tracking-widest text-ink/40">
-                Email address
-              </label>
-              <input
-                type="email"
-                placeholder="you@email.com"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                className="mt-2 w-full rounded-2xl border border-ink/20 bg-white px-4 py-3 text-sm focus:border-ink focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="text-xs uppercase tracking-widest text-ink/40">
-                Password
-              </label>
-              <input
-                type="password"
-                placeholder="Create a password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-                className="mt-2 w-full rounded-2xl border border-ink/20 bg-white px-4 py-3 text-sm focus:border-ink focus:outline-none"
-              />
-            </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="mt-2 rounded-full bg-brass px-6 py-3 text-sm font-semibold text-mist shadow-glow transition hover:translate-y-[-1px]"
+    <AuthLayout
+      title="Create account"
+      subtitle="Register once and save your civic conversations securely."
+      switchText="Already have an account?"
+      switchAction={
+        <motion.span whileHover={{ x: 3 }} className="inline-flex">
+          <Link to="/login" className="font-semibold text-river">Login</Link>
+        </motion.span>
+      }
+    >
+      <motion.form
+        className="flex flex-col gap-4"
+        onSubmit={handleSubmit}
+        initial={{ opacity: 0, x: -10 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <AuthInput
+          id="signup-name"
+          label="Name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+          icon={<UserIcon />}
+          autoComplete="name"
+          error={fieldErrors.name}
+        />
+
+        <AuthInput
+          id="signup-email"
+          label="Email"
+          type="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          icon={<MailIcon />}
+          autoComplete="email"
+          error={fieldErrors.email}
+        />
+
+        <AuthInput
+          id="signup-password"
+          label="Password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          icon={<LockIcon />}
+          autoComplete="new-password"
+          error={fieldErrors.password}
+          canTogglePassword
+        />
+
+        <AuthInput
+          id="signup-confirm"
+          label="Confirm Password"
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+          icon={<LockIcon />}
+          autoComplete="new-password"
+          error={fieldErrors.confirmPassword}
+          canTogglePassword
+        />
+
+        <Button type="submit" variant="secondary" loading={submitting} disabled={success}>
+          {success ? (
+            <motion.span initial={{ scale: 0.8 }} animate={{ scale: 1 }} className="inline-flex items-center gap-2">
+              <span>✓</span>
+              Account created
+            </motion.span>
+          ) : (
+            "Register"
+          )}
+        </Button>
+
+        <AnimatePresence>
+          {error && (
+            <motion.p
+              initial={{ opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              className="rounded-xl border border-clay/40 bg-clay/10 px-3 py-2 text-xs text-clay"
             >
-              {submitting ? "Creating account..." : "Create account"}
-            </button>
-            {error && (
-              <p className="rounded-xl border border-clay/40 bg-clay/10 px-3 py-2 text-xs text-clay">
-                {error}
-              </p>
-            )}
-            <Link to="/" className="text-xs text-ink/60">
-              Back to home
-            </Link>
-          </form>
-        </div>
-      </div>
-    </div>
+              {error}
+            </motion.p>
+          )}
+        </AnimatePresence>
+      </motion.form>
+    </AuthLayout>
   );
 }
